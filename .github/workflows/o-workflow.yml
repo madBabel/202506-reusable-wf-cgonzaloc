@@ -6,10 +6,10 @@ on:
       build-status:
         description: "Choose the build status for the demo"
         type: string
-        options:
-          - success
-          - failure        
-
+        required: true     
+    outputs:
+      status:
+        value: ${{jobs.build.outputs.status}}
 jobs:
   build:
     runs-on: ubuntu-latest
