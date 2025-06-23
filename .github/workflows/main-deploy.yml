@@ -21,6 +21,6 @@ jobs:
   deploy: 
     runs-on: ubuntu-latest
     steps:
-      if: ${{outputs.build-status == 'success'}
+      if:.*needs.call-build.outputs.build-status == 'success'"
       deploy:
         run: echo 'deploying'
