@@ -14,10 +14,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     call-build: 
-      uses: ./o-workflow
+      uses: ./github/workflows/o-workflow.yml
       with:
         build-status: success
   deploy: 
     runs-on: ubuntu-latest
     if: ${{outputs.build-status == 'success'}
-    run: echo 'deploying'
+    deploy:
+      run: echo 'deploying'
