@@ -1,0 +1,23 @@
+name: Working with Outputs
+
+on:
+  workflow_dispatch:
+    inputs:
+      build-status:
+        description: "Choose the build status for the demo"
+        type: choice
+        default: success
+        options:
+          - success
+          - failure      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    call-build: 
+      uses: ./o-workflow
+      with:
+        build-status: success
+  deploy: 
+    runs-on: ubuntu-latest
+    if: ${{outputs.build-status == 'success'}
+    run: echo 'deploying'
