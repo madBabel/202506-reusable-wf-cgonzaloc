@@ -9,7 +9,7 @@ on:
         required: true     
     outputs:
       status:
-        value: ${{jobs.build.outputs.status}}
+        value: ${{jobs.build.outputs.build-status}}
 jobs:
   build:
     runs-on: ubuntu-latest
