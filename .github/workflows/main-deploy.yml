@@ -18,9 +18,10 @@ jobs:
         uses: ./.github/workflows/o-workflow.yml
         with:
           build-status: success
-  deploy: 
+  deploy:
     runs-on: ubuntu-latest
-    steps:      
-      deploy:
-        if: .*needs.call-build.outputs.build-status == 'success'"
+    needs: build
+    steps:
+      - name: Deploy step
+        if: needs.build.outputs.build-status == 'success'
         run: echo 'deploying'
