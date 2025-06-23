@@ -14,7 +14,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      call-build: 
+      - name: Call-build
         uses: ./.github/workflows/o-workflow.yml
         with:
           build-status: success
