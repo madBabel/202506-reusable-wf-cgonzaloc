@@ -20,7 +20,7 @@ jobs:
           build-status: success
   deploy: 
     runs-on: ubuntu-latest
-    steps:
-      if:.*needs.call-build.outputs.build-status == 'success'"
+    steps:      
       deploy:
+        if: .*needs.call-build.outputs.build-status == 'success'"
         run: echo 'deploying'
